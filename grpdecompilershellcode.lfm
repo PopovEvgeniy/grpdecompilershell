@@ -1,0 +1,85 @@
+object Form1: TForm1
+  Left = 254
+  Height = 178
+  Top = 155
+  Width = 331
+  Caption = 'Form1'
+  ClientHeight = 178
+  ClientWidth = 331
+  OnCreate = FormCreate
+  LCLVersion = '1.0.4.0'
+  object LabeledEdit1: TLabeledEdit
+    Left = 80
+    Height = 21
+    Top = 40
+    Width = 144
+    EditLabel.AnchorSideLeft.Control = LabeledEdit1
+    EditLabel.AnchorSideRight.Control = LabeledEdit1
+    EditLabel.AnchorSideRight.Side = asrBottom
+    EditLabel.AnchorSideBottom.Control = LabeledEdit1
+    EditLabel.Left = 80
+    EditLabel.Height = 14
+    EditLabel.Top = 23
+    EditLabel.Width = 144
+    EditLabel.Caption = 'File'
+    EditLabel.ParentColor = False
+    TabOrder = 0
+    Text = 'LabeledEdit1'
+    OnChange = LabeledEdit1Change
+  end
+  object LabeledEdit2: TLabeledEdit
+    Left = 80
+    Height = 21
+    Top = 88
+    Width = 144
+    EditLabel.AnchorSideLeft.Control = LabeledEdit2
+    EditLabel.AnchorSideRight.Control = LabeledEdit2
+    EditLabel.AnchorSideRight.Side = asrBottom
+    EditLabel.AnchorSideBottom.Control = LabeledEdit2
+    EditLabel.Left = 80
+    EditLabel.Height = 14
+    EditLabel.Top = 71
+    EditLabel.Width = 144
+    EditLabel.Caption = 'Directory'
+    EditLabel.ParentColor = False
+    TabOrder = 1
+    Text = 'LabeledEdit2'
+    OnChange = LabeledEdit2Change
+  end
+  object Button1: TButton
+    Left = 232
+    Height = 25
+    Top = 40
+    Width = 88
+    Caption = 'Open'
+    OnClick = Button1Click
+    TabOrder = 2
+  end
+  object Button2: TButton
+    Left = 232
+    Height = 25
+    Top = 88
+    Width = 88
+    Caption = 'Select'
+    OnClick = Button2Click
+    TabOrder = 3
+  end
+  object Button3: TButton
+    Left = 88
+    Height = 25
+    Top = 128
+    Width = 112
+    Caption = 'Extract'
+    OnClick = Button3Click
+    TabOrder = 4
+  end
+  object OpenDialog1: TOpenDialog
+    left = 208
+    top = 128
+  end
+  object SelectDirectoryDialog1: TSelectDirectoryDialog
+    Options = [ofOldStyleDialog, ofEnableSizing, ofViewDetail]
+    left = 296
+    top = 128
+  end
+end
