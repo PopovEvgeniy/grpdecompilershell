@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Dialogs,
-  ExtCtrls, StdCtrls;
+  ExtCtrls, StdCtrls, ComCtrls, LazUTF8;
 
 type
 
@@ -20,6 +20,7 @@ type
     LabeledEdit2: TLabeledEdit;
     OpenDialog1: TOpenDialog;
     SelectDirectoryDialog1: TSelectDirectoryDialog;
+    StatusBar1: TStatusBar;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
@@ -75,12 +76,10 @@ convert_file_name:=target;
 end;
 
 function execute_program(executable:string;argument:string):Integer;
-var parametrs:string;
 var code:Integer;
 begin
-parametrs:=UTF8ToSys(argument);
 try
-code:=ExecuteProcess(executable,parametrs,[]);
+code:=ExecuteProcess(UTF8ToWinCp(executable),UTF8ToWinCp(argument),[]);
 except
 On EOSError do code:=-1;
 end;
@@ -90,7 +89,7 @@ end;
 procedure window_setup();
 begin
  Application.Title:='GRP DECOMPILER SHELL';
- Form1.Caption:='GRP DECOMPILER SHELL 0.8';
+ Form1.Caption:='GRP DECOMPILER SHELL 1.0.1';
  Form1.BorderStyle:=bsDialog;
  Form1.Font.Name:=Screen.MenuFont.Name;
  Form1.Font.Size:=14;
@@ -133,6 +132,7 @@ Form1.Button2.Caption:='Browse';
 Form1.Button3.Caption:='Extract';
 Form1.OpenDialog1.Title:='Open existing file';
 Form1.SelectDirectoryDialog1.Title:='Select a directory';
+Form1.StatusBar1.SimpleText:='Ready to work';
 end;
 
 procedure setup();
@@ -171,14 +171,8 @@ end;
 end;
 
 procedure TForm1.Button2Click(Sender: TObject);
-var select:boolean;
 begin
-select:=SelectDirectoryDialog1.Execute();
-if select=True then
-begin
-LabeledEdit2.Text:=SelectDirectoryDialog1.FileName+DirectorySeparator;
-end;
-
+if Form1.SelectDirectoryDialog1.Execute()=True then Form1.LabeledEdit2.Text:=Form1.SelectDirectoryDialog1.FileName+DirectorySeparator;
 end;
 
 procedure TForm1.Button3Click(Sender: TObject);
@@ -199,7 +193,7 @@ ShowMessage('Can not execute a external program');
 end
 else
 begin
-ShowMessage(message[status]);
+Form1.StatusBar1.SimpleText:=message[status];
 end;
 
 end;

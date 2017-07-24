@@ -7,19 +7,19 @@ object Form1: TForm1
   ClientHeight = 178
   ClientWidth = 331
   OnCreate = FormCreate
-  LCLVersion = '1.0.4.0'
+  LCLVersion = '1.6.4.0'
   object LabeledEdit1: TLabeledEdit
     Left = 80
     Height = 21
-    Top = 40
+    Top = 24
     Width = 144
     EditLabel.AnchorSideLeft.Control = LabeledEdit1
     EditLabel.AnchorSideRight.Control = LabeledEdit1
     EditLabel.AnchorSideRight.Side = asrBottom
     EditLabel.AnchorSideBottom.Control = LabeledEdit1
     EditLabel.Left = 80
-    EditLabel.Height = 14
-    EditLabel.Top = 23
+    EditLabel.Height = 13
+    EditLabel.Top = 8
     EditLabel.Width = 144
     EditLabel.Caption = 'File'
     EditLabel.ParentColor = False
@@ -30,15 +30,15 @@ object Form1: TForm1
   object LabeledEdit2: TLabeledEdit
     Left = 80
     Height = 21
-    Top = 88
+    Top = 72
     Width = 144
     EditLabel.AnchorSideLeft.Control = LabeledEdit2
     EditLabel.AnchorSideRight.Control = LabeledEdit2
     EditLabel.AnchorSideRight.Side = asrBottom
     EditLabel.AnchorSideBottom.Control = LabeledEdit2
     EditLabel.Left = 80
-    EditLabel.Height = 14
-    EditLabel.Top = 71
+    EditLabel.Height = 13
+    EditLabel.Top = 56
     EditLabel.Width = 144
     EditLabel.Caption = 'Directory'
     EditLabel.ParentColor = False
@@ -49,7 +49,7 @@ object Form1: TForm1
   object Button1: TButton
     Left = 232
     Height = 25
-    Top = 40
+    Top = 24
     Width = 88
     Caption = 'Open'
     OnClick = Button1Click
@@ -58,28 +58,35 @@ object Form1: TForm1
   object Button2: TButton
     Left = 232
     Height = 25
-    Top = 88
+    Top = 72
     Width = 88
     Caption = 'Select'
     OnClick = Button2Click
     TabOrder = 3
   end
   object Button3: TButton
-    Left = 88
+    Left = 96
     Height = 25
-    Top = 128
+    Top = 112
     Width = 112
     Caption = 'Extract'
     OnClick = Button3Click
     TabOrder = 4
   end
+  object StatusBar1: TStatusBar
+    Left = 0
+    Height = 20
+    Top = 158
+    Width = 331
+    Panels = <>
+  end
   object OpenDialog1: TOpenDialog
-    left = 208
-    top = 128
+    left = 40
+    top = 112
   end
   object SelectDirectoryDialog1: TSelectDirectoryDialog
     Options = [ofOldStyleDialog, ofEnableSizing, ofViewDetail]
-    left = 296
-    top = 128
+    left = 256
+    top = 112
   end
 end
