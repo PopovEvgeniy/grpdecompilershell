@@ -89,7 +89,7 @@ end;
 procedure window_setup();
 begin
  Application.Title:='GRP DECOMPILER SHELL';
- Form1.Caption:='GRP DECOMPILER SHELL 1.0.1';
+ Form1.Caption:='GRP DECOMPILER SHELL 1.0.2';
  Form1.BorderStyle:=bsDialog;
  Form1.Font.Name:=Screen.MenuFont.Name;
  Form1.Font.Size:=14;
@@ -150,14 +150,12 @@ end;
 
 procedure TForm1.LabeledEdit1Change(Sender: TObject);
 begin
-Form1.Button3.Enabled:=check_input(LabeledEdit1.Text);
-Form1.Button3.Enabled:=check_input(LabeledEdit2.Text);
+Form1.Button3.Enabled:=check_input(Form1.LabeledEdit1.Text) and check_input(Form1.LabeledEdit2.Text);
 end;
 
 procedure TForm1.LabeledEdit2Change(Sender: TObject);
 begin
-Form1.Button3.Enabled:=check_input(Form1.LabeledEdit1.Text);
-Form1.Button3.Enabled:=check_input(Form1.LabeledEdit2.Text);
+Form1.Button3.Enabled:=check_input(Form1.LabeledEdit1.Text) and check_input(Form1.LabeledEdit2.Text);
 end;
 
 procedure TForm1.Button1Click(Sender: TObject);
