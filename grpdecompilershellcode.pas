@@ -35,7 +35,6 @@ type
 
 var Form1: TForm1;
 function get_path(): string;
-function check_input(input:string):Boolean;
 function convert_file_name(source:string): string;
 function execute_program(executable:string;argument:string):Integer;
 procedure window_setup();
@@ -50,17 +49,6 @@ implementation
 function get_path(): string;
 begin
 get_path:=ExtractFilePath(Application.ExeName);
-end;
-
-function check_input(input:string):Boolean;
-var target:Boolean;
-begin
-target:=True;
-if input='' then
-begin
-target:=False;
-end;
-check_input:=target;
 end;
 
 function convert_file_name(source:string): string;
@@ -89,7 +77,7 @@ end;
 procedure window_setup();
 begin
  Application.Title:='GRP DECOMPILER SHELL';
- Form1.Caption:='GRP DECOMPILER SHELL 1.0.2';
+ Form1.Caption:='GRP DECOMPILER SHELL 1.0.3';
  Form1.BorderStyle:=bsDialog;
  Form1.Font.Name:=Screen.MenuFont.Name;
  Form1.Font.Size:=14;
@@ -150,12 +138,12 @@ end;
 
 procedure TForm1.LabeledEdit1Change(Sender: TObject);
 begin
-Form1.Button3.Enabled:=check_input(Form1.LabeledEdit1.Text) and check_input(Form1.LabeledEdit2.Text);
+Form1.Button3.Enabled:=(Form1.LabeledEdit1.Text<>'') and (Form1.LabeledEdit2.Text<>'');
 end;
 
 procedure TForm1.LabeledEdit2Change(Sender: TObject);
 begin
-Form1.Button3.Enabled:=check_input(Form1.LabeledEdit1.Text) and check_input(Form1.LabeledEdit2.Text);
+Form1.Button3.Enabled:=(Form1.LabeledEdit1.Text<>'') and (Form1.LabeledEdit2.Text<>'');
 end;
 
 procedure TForm1.Button1Click(Sender: TObject);
@@ -175,13 +163,9 @@ end;
 
 procedure TForm1.Button3Click(Sender: TObject);
 var host,argument:string;
-var message:array[0..3] of string;
+var message:array[0..3] of string=('Operation successfully complete','Can not allocate memory','File operation error','Invalid format');
 var status:Integer;
 begin
-message[0]:='Operation successfully complete';
-message[1]:='Can not allocate memory';
-message[2]:='File operation error';
-message[3]:='Invalid format';
 host:=get_path()+'grpdecompiler';
 argument:=convert_file_name(Form1.LabeledEdit1.Text)+' '+convert_file_name(Form1.LabeledEdit2.Text);
 status:=execute_program(host,argument);
