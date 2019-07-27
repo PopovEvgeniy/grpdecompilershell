@@ -7,19 +7,13 @@ object Form1: TForm1
   ClientHeight = 178
   ClientWidth = 331
   OnCreate = FormCreate
-  LCLVersion = '1.8.4.0'
+  LCLVersion = '2.0.2.0'
   object LabeledEdit1: TLabeledEdit
     Left = 80
-    Height = 21
+    Height = 23
     Top = 24
     Width = 144
-    EditLabel.AnchorSideLeft.Control = LabeledEdit1
-    EditLabel.AnchorSideRight.Control = LabeledEdit1
-    EditLabel.AnchorSideRight.Side = asrBottom
-    EditLabel.AnchorSideBottom.Control = LabeledEdit1
-    EditLabel.Left = 80
-    EditLabel.Height = 13
-    EditLabel.Top = 8
+    EditLabel.Height = 15
     EditLabel.Width = 144
     EditLabel.Caption = 'File'
     EditLabel.ParentColor = False
@@ -29,16 +23,10 @@ object Form1: TForm1
   end
   object LabeledEdit2: TLabeledEdit
     Left = 80
-    Height = 21
+    Height = 23
     Top = 72
     Width = 144
-    EditLabel.AnchorSideLeft.Control = LabeledEdit2
-    EditLabel.AnchorSideRight.Control = LabeledEdit2
-    EditLabel.AnchorSideRight.Side = asrBottom
-    EditLabel.AnchorSideBottom.Control = LabeledEdit2
-    EditLabel.Left = 80
-    EditLabel.Height = 13
-    EditLabel.Top = 56
+    EditLabel.Height = 15
     EditLabel.Width = 144
     EditLabel.Caption = 'Directory'
     EditLabel.ParentColor = False
@@ -75,8 +63,8 @@ object Form1: TForm1
   end
   object StatusBar1: TStatusBar
     Left = 0
-    Height = 20
-    Top = 158
+    Height = 23
+    Top = 155
     Width = 331
     Panels = <>
   end

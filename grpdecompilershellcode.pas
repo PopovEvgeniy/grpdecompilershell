@@ -43,6 +43,7 @@ procedure interface_setup();
 procedure common_setup();
 procedure language_setup();
 procedure setup();
+function decompile_grp(target:string;directory:string):string;
 
 implementation
 
@@ -77,7 +78,7 @@ end;
 procedure window_setup();
 begin
  Application.Title:='GRP DECOMPILER SHELL';
- Form1.Caption:='GRP DECOMPILER SHELL 1.0.3';
+ Form1.Caption:='GRP DECOMPILER SHELL 1.0.4';
  Form1.BorderStyle:=bsDialog;
  Form1.Font.Name:=Screen.MenuFont.Name;
  Form1.Font.Size:=14;
@@ -129,6 +130,22 @@ common_setup();
 language_setup();
 end;
 
+function decompile_grp(target:string;directory:string):string;
+var host,argument,message:string;
+var messages:array[0..3] of string=('Operation successfully complete','Can not allocate memory','File operation error','Invalid format');
+var status:Integer;
+begin
+message:='Can not execute a external program';
+host:=get_path()+'grpdecompiler';
+argument:=convert_file_name(target)+' '+convert_file_name(directory);
+status:=execute_program(host,argument);
+if status<>-1 then
+begin
+message:=messages[status];
+end;
+decompile_grp:=message;
+end;
+
 { TForm1 }
 
 procedure TForm1.FormCreate(Sender: TObject);
@@ -162,22 +179,8 @@ if Form1.SelectDirectoryDialog1.Execute()=True then Form1.LabeledEdit2.Text:=For
 end;
 
 procedure TForm1.Button3Click(Sender: TObject);
-var host,argument:string;
-var message:array[0..3] of string=('Operation successfully complete','Can not allocate memory','File operation error','Invalid format');
-var status:Integer;
 begin
-host:=get_path()+'grpdecompiler';
-argument:=convert_file_name(Form1.LabeledEdit1.Text)+' '+convert_file_name(Form1.LabeledEdit2.Text);
-status:=execute_program(host,argument);
-if status=-1 then
-begin
-ShowMessage('Can not execute a external program');
-end
-else
-begin
-Form1.StatusBar1.SimpleText:=message[status];
-end;
-
+Form1.StatusBar1.SimpleText:=decompile_grp(Form1.LabeledEdit1.Text,Form1.LabeledEdit2.Text);
 end;
 
 {$R *.lfm}
