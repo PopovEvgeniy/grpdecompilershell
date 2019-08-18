@@ -78,7 +78,7 @@ end;
 procedure window_setup();
 begin
  Application.Title:='GRP DECOMPILER SHELL';
- Form1.Caption:='GRP DECOMPILER SHELL 1.0.4';
+ Form1.Caption:='GRP DECOMPILER SHELL 1.0.5';
  Form1.BorderStyle:=bsDialog;
  Form1.Font.Name:=Screen.MenuFont.Name;
  Form1.Font.Size:=14;
@@ -132,7 +132,7 @@ end;
 
 function decompile_grp(target:string;directory:string):string;
 var host,argument,message:string;
-var messages:array[0..3] of string=('Operation successfully complete','Can not allocate memory','File operation error','Invalid format');
+var messages:array[0..4] of string=('Operation successfully complete','Cant open input file','Cant create output file','Cant allocate memory','Invalid format');
 var status:Integer;
 begin
 message:='Can not execute a external program';
