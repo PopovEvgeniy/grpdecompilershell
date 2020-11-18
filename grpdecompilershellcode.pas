@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, FileUtil, Forms, Controls, Dialogs,
-  ExtCtrls, StdCtrls, ComCtrls, LazUTF8;
+  ExtCtrls, StdCtrls, ComCtrls;
 
 type
 
@@ -71,7 +71,7 @@ function execute_program(executable:string;argument:string):Integer;
 var code:Integer;
 begin
  try
-  code:=ExecuteProcess(UTF8ToWinCp(executable),UTF8ToWinCp(argument),[]);
+  code:=ExecuteProcess(executable,argument,[]);
  except
   On EOSError do code:=-1;
  end;
@@ -81,7 +81,7 @@ end;
 procedure window_setup();
 begin
  Application.Title:='GRP DECOMPILER SHELL';
- Form1.Caption:='GRP DECOMPILER SHELL 1.0.6';
+ Form1.Caption:='GRP DECOMPILER SHELL 1.0.7';
  Form1.BorderStyle:=bsDialog;
  Form1.Font.Name:=Screen.MenuFont.Name;
  Form1.Font.Size:=14;
