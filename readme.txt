@@ -1,13 +1,13 @@
                                 GRP DECOMPILER SHELL
 
-                                  Version 1.0.8
+                                  Version 1.0.8.1
 
                          This software by Popov Evgeniy Alekseyevich
 
 System requirement
 
-Windows 2000 or higher for 32 bit system
-Windows Vista or higher for 64 bit system
+Windows 2000 or higher for 32-bit system
+Windows Vista or higher for 64-bit system
 
 Program description
 
@@ -42,3 +42,4 @@ Change log
 1.0.6 - Small changes.
 1.0.7 - Small bug fixed.
 1.0.8 - Small changes.
+1.0.8.1 - Documentation updated.
