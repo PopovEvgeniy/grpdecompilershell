@@ -71,7 +71,7 @@ end;
 procedure window_setup();
 begin
  Application.Title:='GRP DECOMPILER SHELL';
- Form1.Caption:='GRP DECOMPILER SHELL 1.0.8';
+ Form1.Caption:='GRP DECOMPILER SHELL 1.0.9';
  Form1.BorderStyle:=bsDialog;
  Form1.Font.Name:=Screen.MenuFont.Name;
  Form1.Font.Size:=14;
@@ -98,13 +98,6 @@ begin
  Form1.LabeledEdit2.Enabled:=Form1.LabeledEdit1.Enabled;
 end;
 
-procedure common_setup();
-begin
- window_setup();
- interface_setup();
- dialog_setup();
-end;
-
 procedure language_setup();
 begin
  Form1.LabeledEdit1.EditLabel.Caption:='File';
@@ -119,7 +112,9 @@ end;
 
 procedure setup();
 begin
- common_setup();
+ window_setup();
+ interface_setup();
+ dialog_setup();
  language_setup();
 end;
 
