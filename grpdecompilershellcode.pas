@@ -5,8 +5,8 @@ unit grpdecompilershellcode;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, Forms, Controls, Dialogs,
-  ExtCtrls, StdCtrls, ComCtrls;
+  Classes, SysUtils, Forms, Controls, Dialogs,
+  ExtCtrls, StdCtrls, ComCtrls, LazFileUtils;
 
 type
 
@@ -40,12 +40,7 @@ var Form1: TForm1;
 
 implementation
 
-function get_path(): string;
-begin
- get_path:=ExtractFilePath(Application.ExeName);
-end;
-
-function convert_file_name(source:string): string;
+function convert_file_name(const source:string): string;
 var target:string;
 begin
  target:=source;
@@ -57,7 +52,7 @@ begin
  convert_file_name:=target;
 end;
 
-function execute_program(executable:string;argument:string):Integer;
+function execute_program(const executable:string;const argument:string):Integer;
 var code:Integer;
 begin
  try
@@ -68,10 +63,26 @@ begin
  execute_program:=code;
 end;
 
+function decompile_grp(const target:string;const directory:string):string;
+var host,argument,message:string;
+var messages:array[0..4] of string=('Operation successfully complete','Cant open input file','Cant create output file','Cant allocate memory','Invalid format');
+var status:Integer;
+begin
+ message:='Can not execute a external program';
+ host:=ExtractFilePath(Application.ExeName)+'grpdecompiler.exe';
+ argument:=convert_file_name(target)+' '+convert_file_name(directory);
+ status:=execute_program(host,argument);
+ if status<>-1 then
+ begin
+  message:=messages[status];
+ end;
+ decompile_grp:=message;
+end;
+
 procedure window_setup();
 begin
  Application.Title:='GRP DECOMPILER SHELL';
- Form1.Caption:='GRP DECOMPILER SHELL 1.0.9';
+ Form1.Caption:='GRP DECOMPILER SHELL 1.1';
  Form1.BorderStyle:=bsDialog;
  Form1.Font.Name:=Screen.MenuFont.Name;
  Form1.Font.Size:=14;
@@ -116,22 +127,6 @@ begin
  interface_setup();
  dialog_setup();
  language_setup();
-end;
-
-function decompile_grp(target:string;directory:string):string;
-var host,argument,message:string;
-var messages:array[0..4] of string=('Operation successfully complete','Cant open input file','Cant create output file','Cant allocate memory','Invalid format');
-var status:Integer;
-begin
- message:='Can not execute a external program';
- host:=get_path()+'grpdecompiler';
- argument:=convert_file_name(target)+' '+convert_file_name(directory);
- status:=execute_program(host,argument);
- if status<>-1 then
- begin
-  message:=messages[status];
- end;
- decompile_grp:=message;
 end;
 
 { TForm1 }

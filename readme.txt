@@ -1,6 +1,6 @@
                                 GRP DECOMPILER SHELL
 
-                                  Version 1.0.9
+                                  Version 1.1
 
                          This software by Popov Evgeniy Alekseyevich
 
@@ -25,7 +25,7 @@ You can send me a letter to tuzik87@inbox.ru
 About program modification
 
 Source code included in source.zip archive.
-It can be compiled under Lazarus 2.2.2 or higher.
+It can be compiled under Lazarus 2.2.6 or higher.
 
 Change log
 
@@ -43,4 +43,4 @@ Change log
 1.0.7 - Small bug fixed.
 1.0.8 - Small changes.
 1.0.8.1 - Documentation updated.
-1.0.9 - Small changes.
+1.0.9 - 1.1 - Small changes.
