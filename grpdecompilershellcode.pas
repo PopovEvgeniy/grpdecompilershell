@@ -78,7 +78,7 @@ end;
 procedure window_setup();
 begin
  Application.Title:='GRP DECOMPILER SHELL';
- Form1.Caption:='GRP DECOMPILER SHELL 1.1.2';
+ Form1.Caption:='GRP DECOMPILER SHELL 1.1.3';
  Form1.BorderStyle:=bsDialog;
  Form1.Font.Name:=Screen.MenuFont.Name;
  Form1.Font.Size:=14;
@@ -86,6 +86,7 @@ end;
 
 procedure dialog_setup();
 begin
+ Form1.SelectDirectoryDialog1.Options:=[ofOldStyleDialog,ofEnableSizing,ofViewDetail,ofCreatePrompt];
  Form1.OpenDialog1.FileName:='*.grp';
  Form1.OpenDialog1.DefaultExt:='*.grp';
  Form1.OpenDialog1.Filter:='GRP pseudo-archive|*.grp';
