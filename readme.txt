@@ -1,6 +1,6 @@
                                 GRP DECOMPILER SHELL
 
-                                  Version 1.1.1
+                                  Version 1.1.2
 
                          This software by Popov Evgeniy Alekseyevich
 
@@ -44,3 +44,4 @@ Change log
 1.0.8 - Small changes.
 1.0.8.1 - Documentation updated.
 1.0.9 - 1.1.1 - Small changes.
+1.1.2 - Small bug fixed.
