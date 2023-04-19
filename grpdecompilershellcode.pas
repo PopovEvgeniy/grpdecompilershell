@@ -52,7 +52,7 @@ function correct_path(const source:string ): string;
 var target:string;
 begin
  target:=source;
- if source[Length(source)]<>DirectorySeparator then
+ if LastDelimiter(DirectorySeparator,source)<>Length(source) then
  begin
   target:=source+DirectorySeparator;
  end;
@@ -89,7 +89,7 @@ end;
 procedure window_setup();
 begin
  Application.Title:='GRP DECOMPILER SHELL';
- Form1.Caption:='GRP DECOMPILER SHELL 1.1.5';
+ Form1.Caption:='GRP DECOMPILER SHELL 1.1.6';
  Form1.BorderStyle:=bsDialog;
  Form1.Font.Name:=Screen.MenuFont.Name;
  Form1.Font.Size:=14;
@@ -97,7 +97,6 @@ end;
 
 procedure dialog_setup();
 begin
- Form1.SelectDirectoryDialog1.Options:=[ofOldStyleDialog,ofEnableSizing,ofViewDetail,ofCreatePrompt];
  Form1.OpenDialog1.FileName:='*.grp';
  Form1.OpenDialog1.DefaultExt:='*.grp';
  Form1.OpenDialog1.Filter:='GRP pseudo-archive|*.grp';
