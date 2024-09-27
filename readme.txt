@@ -1,10 +1,10 @@
                                 GRP DECOMPILER SHELL
 
-                                  Version 1.1.6
+                                  Version 1.1.7
 
                          This software by Popov Evgeniy Alekseyevich
 
-System requirement
+System requirements
 
 Windows 2000 or higher for 32-bit systems
 Windows Vista or higher for 64-bit systems
@@ -25,7 +25,7 @@ You can send me a letter at tuzik87@inbox.ru.
 About program modification
 
 Source code is included in the source.zip archive.
-It can be compiled under Lazarus 2.2.6 or higher.
+It can be compiled under Lazarus 3.4 or higher.
 
 Change log
 
@@ -49,3 +49,4 @@ Change log
 1.1.4 – 1.1.5 – Small bug fixed.
 1.1.6 – Small changes.
 1.1.6.1 – Documentation updated.
+1.1.7 – Small changes.

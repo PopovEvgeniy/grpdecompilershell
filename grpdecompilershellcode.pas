@@ -72,10 +72,10 @@ end;
 
 function decompile_grp(const target:string;const directory:string):string;
 var host,argument,message:string;
-var messages:array[0..4] of string=('Operation successfully complete','Cant open input file','Cant create output file','Cant allocate memory','Invalid format');
+var messages:array[0..4] of string=('Operation was successfully completed','Cant open the input file','Cant create the output file','Cant allocate memory','Invalid format');
 var status:Integer;
 begin
- message:='Can not execute a external program';
+ message:='Can not execute an external program';
  host:=ExtractFilePath(Application.ExeName)+'grpdecompiler.exe';
  argument:=convert_file_name(target)+' '+convert_file_name(directory);
  status:=execute_program(host,argument);
@@ -89,7 +89,7 @@ end;
 procedure window_setup();
 begin
  Application.Title:='GRP DECOMPILER SHELL';
- Form1.Caption:='GRP DECOMPILER SHELL 1.1.6';
+ Form1.Caption:='GRP DECOMPILER SHELL 1.1.7';
  Form1.BorderStyle:=bsDialog;
  Form1.Font.Name:=Screen.MenuFont.Name;
  Form1.Font.Size:=14;
@@ -123,7 +123,7 @@ begin
  Form1.Button1.Caption:='Open';
  Form1.Button2.Caption:='Browse';
  Form1.Button3.Caption:='Extract';
- Form1.OpenDialog1.Title:='Open existing file';
+ Form1.OpenDialog1.Title:='Open the existing file';
  Form1.SelectDirectoryDialog1.Title:='Select a directory';
  Form1.StatusBar1.SimpleText:='Ready to work';
 end;
