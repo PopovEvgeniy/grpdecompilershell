@@ -1,14 +1,13 @@
-object Form1: TForm1
+object MainWindow: TMainWindow
   Left = 254
   Height = 178
   Top = 155
   Width = 331
-  Caption = 'Form1'
+  Caption = 'GRP DECOMPILER SHELL'
   ClientHeight = 178
   ClientWidth = 331
-  LCLVersion = '4.0.0.1'
   OnCreate = FormCreate
-  object LabeledEdit1: TLabeledEdit
+  object FileField: TLabeledEdit
     Left = 80
     Height = 23
     Top = 24
@@ -18,10 +17,10 @@ object Form1: TForm1
     EditLabel.Caption = 'File'
     EditLabel.ParentColor = False
     TabOrder = 0
-    Text = 'LabeledEdit1'
-    OnChange = LabeledEdit1Change
+    Text = 'FileField'
+    OnChange = FileFieldChange
   end
-  object LabeledEdit2: TLabeledEdit
+  object DirectoryField: TLabeledEdit
     Left = 80
     Height = 23
     Top = 72
@@ -31,48 +30,48 @@ object Form1: TForm1
     EditLabel.Caption = 'Directory'
     EditLabel.ParentColor = False
     TabOrder = 1
-    Text = 'LabeledEdit2'
-    OnChange = LabeledEdit2Change
+    Text = 'DirectoryField'
+    OnChange = DirectoryFieldChange
   end
-  object Button1: TButton
+  object OpenButton: TButton
     Left = 232
     Height = 25
     Top = 24
     Width = 88
     Caption = 'Open'
     TabOrder = 2
-    OnClick = Button1Click
+    OnClick = OpenButtonClick
   end
-  object Button2: TButton
+  object BrowseButton: TButton
     Left = 232
     Height = 25
     Top = 72
     Width = 88
     Caption = 'Select'
     TabOrder = 3
-    OnClick = Button2Click
+    OnClick = BrowseButtonClick
   end
-  object Button3: TButton
+  object ExtractButton: TButton
     Left = 96
     Height = 25
     Top = 112
     Width = 112
     Caption = 'Extract'
     TabOrder = 4
-    OnClick = Button3Click
+    OnClick = ExtractButtonClick
   end
-  object StatusBar1: TStatusBar
+  object OperationStatus: TStatusBar
     Left = 0
     Height = 23
     Top = 155
     Width = 331
     Panels = <>
   end
-  object OpenDialog1: TOpenDialog
+  object OpenDialog: TOpenDialog
     Left = 40
     Top = 112
   end
-  object SelectDirectoryDialog1: TSelectDirectoryDialog
+  object SelectDirectoryDialog: TSelectDirectoryDialog
     Left = 256
     Top = 112
   end

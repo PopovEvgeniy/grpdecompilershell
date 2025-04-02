@@ -14,7 +14,7 @@
     <i18n>
       <EnableI18N LFM="False"/>
     </i18n>
-    <BuildModes Count="2" Active="Windows 32 bit">
+    <BuildModes Count="2" Active="Windows 64 bit">
       <Item1 Name="Windows 32 bit" Default="True"/>
       <Item2 Name="Windows 64 bit">
         <CompilerOptions>
@@ -38,6 +38,7 @@
           <Linking>
             <Debugging>
               <GenerateDebugInfo Value="False"/>
+              <RunWithoutDebug Value="True"/>
               <UseLineInfoUnit Value="False"/>
             </Debugging>
             <LinkSmart Value="True"/>
@@ -74,12 +75,12 @@
       <Unit1>
         <Filename Value="grpdecompilershellcode.pas"/>
         <IsPartOfProject Value="True"/>
-        <ComponentName Value="Form1"/>
+        <ComponentName Value="MainWindow"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
         <TopLine Value="79"/>
-        <CursorPos X="44" Y="92"/>
+        <CursorPos X="49" Y="92"/>
         <UsageCount Value="22"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -92,7 +93,7 @@
         <UsageCount Value="10"/>
       </Unit2>
     </Units>
-    <JumpHistory Count="12" HistoryIndex="11">
+    <JumpHistory Count="23" HistoryIndex="22">
       <Position1>
         <Filename Value="grpdecompilershellcode.pas"/>
         <Caret Line="149" TopLine="149"/>
@@ -141,6 +142,50 @@
         <Filename Value="grpdecompilershellcode.pas"/>
         <Caret Line="119" Column="11" TopLine="112"/>
       </Position12>
+      <Position13>
+        <Filename Value="grpdecompilershellcode.pas"/>
+        <Caret Line="107" Column="13" TopLine="94"/>
+      </Position13>
+      <Position14>
+        <Filename Value="grpdecompilershellcode.pas"/>
+        <Caret Line="108" Column="13" TopLine="104"/>
+      </Position14>
+      <Position15>
+        <Filename Value="grpdecompilershellcode.pas"/>
+        <Caret Line="109" Column="13" TopLine="105"/>
+      </Position15>
+      <Position16>
+        <Filename Value="grpdecompilershellcode.pas"/>
+        <Caret Line="148" Column="48" TopLine="137"/>
+      </Position16>
+      <Position17>
+        <Filename Value="grpdecompilershellcode.pas"/>
+        <Caret Line="122" Column="13" TopLine="116"/>
+      </Position17>
+      <Position18>
+        <Filename Value="grpdecompilershellcode.pas"/>
+        <Caret Line="177" Column="87" TopLine="62"/>
+      </Position18>
+      <Position19>
+        <Filename Value="grpdecompilershellcode.pas"/>
+        <Caret Line="128" Column="13" TopLine="118"/>
+      </Position19>
+      <Position20>
+        <Filename Value="grpdecompilershellcode.pas"/>
+        <Caret Line="177" Column="13" TopLine="161"/>
+      </Position20>
+      <Position21>
+        <Filename Value="grpdecompilershellcode.pas"/>
+        <Caret Line="100" Column="13" TopLine="90"/>
+      </Position21>
+      <Position22>
+        <Filename Value="grpdecompilershellcode.pas"/>
+        <Caret Line="161" Column="62" TopLine="145"/>
+      </Position22>
+      <Position23>
+        <Filename Value="grpdecompilershellcode.pas"/>
+        <Caret Line="127" Column="13" TopLine="117"/>
+      </Position23>
     </JumpHistory>
   </ProjectOptions>
   <CompilerOptions>
@@ -165,6 +210,7 @@
     <Linking>
       <Debugging>
         <GenerateDebugInfo Value="False"/>
+        <RunWithoutDebug Value="True"/>
         <UseLineInfoUnit Value="False"/>
       </Debugging>
       <LinkSmart Value="True"/>

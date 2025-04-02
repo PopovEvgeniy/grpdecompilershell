@@ -1,6 +1,6 @@
                                 GRP DECOMPILER SHELL
 
-                                  Version 1.1.8
+                                  Version 1.1.9
 
                          This software was made by Popov Evgeniy Alekseyevich
 
@@ -12,7 +12,7 @@ Windows Vista or higher for 64-bit systems
 Program description
 
 This program is a graphic shell for GRP DECOMPILER.
-Put the executable file of GRP DECOMPILER to the GRP DECOMPILER SHELL directory before the first start.
+Put the executable file of GRP DECOMPILER in the GRP DECOMPILER SHELL directory before the first start.
 
 License
 
@@ -25,11 +25,11 @@ You can send me a letter at tuzik87@inbox.ru.
 About program modification
 
 The code is included in the source.zip archive.
-It can be compiled under Lazarus 4.0 RC1 or higher.
+It can be compiled under Lazarus 4.0 RC3 or higher.
 
 Change log
 
-0.1: Initial version.
+0.1: The initial version.
 0.2-0.4: The small changes in the source code.
 0.5: A bug with file names with spaces has been fixed.
 0.6: The program was totally rewritten.
@@ -52,3 +52,4 @@ Change log
 1.1.7: The small changes.
 1.1.7.1-1.1.7.2: The documentation has been updated.
 1.1.8: The source code was recompiled under Lazarus 4.0 RC1.
+1.1.9: The source code was recompiled under Lazarus 4.0 RC3.

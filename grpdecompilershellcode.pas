@@ -10,30 +10,30 @@ uses
 
 type
 
-  { TForm1 }
+  { TMainWindow }
 
-  TForm1 = class(TForm)
-    Button1: TButton;
-    Button2: TButton;
-    Button3: TButton;
-    LabeledEdit1: TLabeledEdit;
-    LabeledEdit2: TLabeledEdit;
-    OpenDialog1: TOpenDialog;
-    SelectDirectoryDialog1: TSelectDirectoryDialog;
-    StatusBar1: TStatusBar;
-    procedure Button1Click(Sender: TObject);
-    procedure Button2Click(Sender: TObject);
-    procedure Button3Click(Sender: TObject);
+  TMainWindow = class(TForm)
+    OpenButton: TButton;
+    BrowseButton: TButton;
+    ExtractButton: TButton;
+    FileField: TLabeledEdit;
+    DirectoryField: TLabeledEdit;
+    OpenDialog: TOpenDialog;
+    SelectDirectoryDialog: TSelectDirectoryDialog;
+    OperationStatus: TStatusBar;
+    procedure OpenButtonClick(Sender: TObject);
+    procedure BrowseButtonClick(Sender: TObject);
+    procedure ExtractButtonClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure LabeledEdit1Change(Sender: TObject);
-    procedure LabeledEdit2Change(Sender: TObject);
+    procedure FileFieldChange(Sender: TObject);
+    procedure DirectoryFieldChange(Sender: TObject);
   private
     { private declarations }
   public
     { public declarations }
   end; 
 
-var Form1: TForm1;
+var MainWindow: TMainWindow;
 
 implementation
 
@@ -89,43 +89,43 @@ end;
 procedure window_setup();
 begin
  Application.Title:='GRP DECOMPILER SHELL';
- Form1.Caption:='GRP DECOMPILER SHELL 1.1.8';
- Form1.BorderStyle:=bsDialog;
- Form1.Font.Name:=Screen.MenuFont.Name;
- Form1.Font.Size:=14;
+ MainWindow.Caption:='GRP DECOMPILER SHELL 1.1.9';
+ MainWindow.BorderStyle:=bsDialog;
+ MainWindow.Font.Name:=Screen.MenuFont.Name;
+ MainWindow.Font.Size:=14;
 end;
 
 procedure dialog_setup();
 begin
- Form1.OpenDialog1.FileName:='*.grp';
- Form1.OpenDialog1.DefaultExt:='*.grp';
- Form1.OpenDialog1.Filter:='GRP pseudo-archive|*.grp';
+ MainWindow.OpenDialog.FileName:='*.grp';
+ MainWindow.OpenDialog.DefaultExt:='*.grp';
+ MainWindow.OpenDialog.Filter:='GRP pseudo-archive|*.grp';
 end;
 
 procedure interface_setup();
 begin
- Form1.Button1.ShowHint:=False;
- Form1.Button2.ShowHint:=Form1.Button1.ShowHint;
- Form1.Button3.ShowHint:=Form1.Button1.ShowHint;
- Form1.Button3.Enabled:=False;
- Form1.LabeledEdit1.Text:='';
- Form1.LabeledEdit2.Text:=Form1.LabeledEdit1.Text;
- Form1.LabeledEdit1.LabelPosition:=lpLeft;
- Form1.LabeledEdit2.LabelPosition:=Form1.LabeledEdit1.LabelPosition;
- Form1.LabeledEdit1.Enabled:=False;
- Form1.LabeledEdit2.Enabled:=Form1.LabeledEdit1.Enabled;
+ MainWindow.OpenButton.ShowHint:=False;
+ MainWindow.BrowseButton.ShowHint:=MainWindow.OpenButton.ShowHint;
+ MainWindow.ExtractButton.ShowHint:=MainWindow.OpenButton.ShowHint;
+ MainWindow.ExtractButton.Enabled:=False;
+ MainWindow.FileField.Text:='';
+ MainWindow.DirectoryField.Text:=MainWindow.FileField.Text;
+ MainWindow.FileField.LabelPosition:=lpLeft;
+ MainWindow.DirectoryField.LabelPosition:=MainWindow.FileField.LabelPosition;
+ MainWindow.FileField.Enabled:=False;
+ MainWindow.DirectoryField.Enabled:=MainWindow.FileField.Enabled;
 end;
 
 procedure language_setup();
 begin
- Form1.LabeledEdit1.EditLabel.Caption:='File';
- Form1.LabeledEdit2.EditLabel.Caption:='Directory';
- Form1.Button1.Caption:='Open';
- Form1.Button2.Caption:='Browse';
- Form1.Button3.Caption:='Extract';
- Form1.OpenDialog1.Title:='Open the existing file';
- Form1.SelectDirectoryDialog1.Title:='Select a directory';
- Form1.StatusBar1.SimpleText:='Ready to work';
+ MainWindow.FileField.EditLabel.Caption:='File';
+ MainWindow.DirectoryField.EditLabel.Caption:='Directory';
+ MainWindow.OpenButton.Caption:='Open';
+ MainWindow.BrowseButton.Caption:='Browse';
+ MainWindow.ExtractButton.Caption:='Extract';
+ MainWindow.OpenDialog.Title:='Open the existing file';
+ MainWindow.SelectDirectoryDialog.Title:='Select a directory';
+ MainWindow.OperationStatus.SimpleText:='Ready to work';
 end;
 
 procedure setup();
@@ -136,45 +136,45 @@ begin
  language_setup();
 end;
 
-{ TForm1 }
+{ TMainWindow }
 
-procedure TForm1.FormCreate(Sender: TObject);
+procedure TMainWindow.FormCreate(Sender: TObject);
 begin
  setup();
 end;
 
-procedure TForm1.LabeledEdit1Change(Sender: TObject);
+procedure TMainWindow.FileFieldChange(Sender: TObject);
 begin
- Form1.Button3.Enabled:=(Form1.LabeledEdit1.Text<>'') and (Form1.LabeledEdit2.Text<>'');
+ MainWindow.ExtractButton.Enabled:=(MainWindow.FileField.Text<>'') and (MainWindow.DirectoryField.Text<>'');
 end;
 
-procedure TForm1.LabeledEdit2Change(Sender: TObject);
+procedure TMainWindow.DirectoryFieldChange(Sender: TObject);
 begin
- Form1.Button3.Enabled:=(Form1.LabeledEdit1.Text<>'') and (Form1.LabeledEdit2.Text<>'');
+ MainWindow.ExtractButton.Enabled:=(MainWindow.FileField.Text<>'') and (MainWindow.DirectoryField.Text<>'');
 end;
 
-procedure TForm1.Button1Click(Sender: TObject);
+procedure TMainWindow.OpenButtonClick(Sender: TObject);
 begin
- if Form1.OpenDialog1.Execute()=True then
+ if MainWindow.OpenDialog.Execute()=True then
  begin
-  Form1.LabeledEdit1.Text:=Form1.OpenDialog1.FileName;
-  Form1.LabeledEdit2.Text:=ExtractFilePath(Form1.OpenDialog1.FileName);
+  MainWindow.FileField.Text:=MainWindow.OpenDialog.FileName;
+  MainWindow.DirectoryField.Text:=ExtractFilePath(MainWindow.OpenDialog.FileName);
  end;
 
 end;
 
-procedure TForm1.Button2Click(Sender: TObject);
+procedure TMainWindow.BrowseButtonClick(Sender: TObject);
 begin
- if Form1.SelectDirectoryDialog1.Execute()=True then
+ if MainWindow.SelectDirectoryDialog.Execute()=True then
  begin
-  Form1.LabeledEdit2.Text:=correct_path(Form1.SelectDirectoryDialog1.FileName);
+  MainWindow.DirectoryField.Text:=correct_path(MainWindow.SelectDirectoryDialog.FileName);
  end;
 
 end;
 
-procedure TForm1.Button3Click(Sender: TObject);
+procedure TMainWindow.ExtractButtonClick(Sender: TObject);
 begin
- Form1.StatusBar1.SimpleText:=decompile_grp(Form1.LabeledEdit1.Text,Form1.LabeledEdit2.Text);
+ MainWindow.OperationStatus.SimpleText:=decompile_grp(MainWindow.FileField.Text,MainWindow.DirectoryField.Text);
 end;
 
 {$R *.lfm}
