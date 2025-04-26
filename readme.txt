@@ -1,6 +1,6 @@
                                 GRP DECOMPILER SHELL
 
-                                  Version 1.1.9
+                                  Version 1.2
 
                          This software was made by Popov Evgeniy Alekseyevich
 
@@ -53,3 +53,4 @@ Change log
 1.1.7.1-1.1.7.2: The documentation has been updated.
 1.1.8: The source code was recompiled under Lazarus 4.0 RC1.
 1.1.9: The source code was recompiled under Lazarus 4.0 RC3.
+1.2: The small changes.
