@@ -6,7 +6,7 @@ object MainWindow: TMainWindow
   Caption = 'GRP DECOMPILER SHELL'
   ClientHeight = 178
   ClientWidth = 331
-  LCLVersion = '4.0.0.3'
+  LCLVersion = '4.2.0.0'
   OnCreate = FormCreate
   object FileField: TLabeledEdit
     Left = 80
