@@ -1,29 +1,29 @@
                                 GRP DECOMPILER SHELL
 
-                                  Version 1.2.1
+                                  Version 1.2.1.1
 
                          This software was made by Popov Evgeniy Alekseyevich
 
-System requirements
+System requirements.
 
 Windows 2000 or higher for 32-bit systems
 Windows Vista or higher for 64-bit systems
 
-Program description
+The program description.
 
 This program is a graphic shell for GRP DECOMPILER.
 Put the executable file of GRP DECOMPILER in the GRP DECOMPILER SHELL directory before the first start.
 
-License
+License.
 
 This program is distributed under the GNU GENERAL PUBLIC LICENSE.
 
-About program modification
+The source code.
 
 The code is included in the source.zip archive.
 It can be compiled under Lazarus 4.2 or higher.
 
-Change log
+Version history.
 
 0.1: The initial version.
 0.2-0.4: The small changes in the source code.
@@ -52,3 +52,4 @@ Change log
 1.2: The small changes.
 1.2.0.1: The documentation has been updated.
 1.2.1: The small changes.
+1.2.1.1: The documentation has been updated.
