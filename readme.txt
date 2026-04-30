@@ -1,6 +1,6 @@
                                 GRP DECOMPILER SHELL
 
-                                  Version 1.2.1.1
+                                  Version 1.2.2
 
                          This software was made by Popov Evgeniy Alekseyevich
 
@@ -21,7 +21,7 @@ This program is distributed under the GNU GENERAL PUBLIC LICENSE.
 The source code.
 
 The code is included in the source.zip archive.
-It can be compiled under Lazarus 4.2 or higher.
+It can be compiled under Lazarus 4.6 or higher.
 
 Version history.
 
@@ -53,3 +53,4 @@ Version history.
 1.2.0.1: The documentation has been updated.
 1.2.1: The small changes.
 1.2.1.1: The documentation has been updated.
+1.2.2: The program has been adapted to the new version of GRP DECOMPILER.
