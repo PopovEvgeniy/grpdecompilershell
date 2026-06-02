@@ -1,12 +1,16 @@
 unit grpdecompilershellcode;
 
-{$mode objfpc}{$H+}
+{
+ This software was made by Popov Evgeniy Alekseyevich.
+ It is distributed under the GNU GENERAL PUBLIC LICENSE (Version 2 or higher).
+}
+
+{$mode objfpc}
+{$H+}
 
 interface
 
-uses
-  Classes, SysUtils, Forms, Controls, Dialogs,
-  ExtCtrls, StdCtrls, ComCtrls;
+uses Classes, SysUtils, Forms, Controls, Dialogs, ExtCtrls, StdCtrls, ComCtrls;
 
 type
 
@@ -28,7 +32,11 @@ type
     procedure FileFieldChange(Sender: TObject);
     procedure DirectoryFieldChange(Sender: TObject);
   private
-    { private declarations }
+    procedure window_setup();
+    procedure dialog_setup();
+    procedure interface_setup();
+    procedure language_setup();
+    procedure setup();
   public
     { public declarations }
   end; 
@@ -36,6 +44,56 @@ type
 var MainWindow: TMainWindow;
 
 implementation
+
+procedure TMainWindow.window_setup();
+begin
+ Application.Title:='GRP DECOMPILER SHELL';
+ Self.Caption:='GRP DECOMPILER SHELL 1.2.3';
+ Self.BorderStyle:=bsDialog;
+ Self.Font.Name:=Screen.MenuFont.Name;
+ Self.Font.Size:=14;
+end;
+
+procedure TMainWindow.dialog_setup();
+begin
+ Self.OpenDialog.FileName:='*.grp';
+ Self.OpenDialog.DefaultExt:='*.grp';
+ Self.OpenDialog.Filter:='GRP pseudo-archive|*.grp';
+end;
+
+procedure TMainWindow.interface_setup();
+begin
+ Self.OpenButton.ShowHint:=False;
+ Self.BrowseButton.ShowHint:=False;
+ Self.ExtractButton.ShowHint:=False;
+ Self.ExtractButton.Enabled:=False;
+ Self.FileField.Text:='';
+ Self.DirectoryField.Text:='';
+ Self.FileField.LabelPosition:=lpLeft;
+ Self.DirectoryField.LabelPosition:=lpLeft;
+ Self.FileField.Enabled:=False;
+ Self.DirectoryField.Enabled:=False;
+end;
+
+procedure TMainWindow.language_setup();
+begin
+ Self.FileField.EditLabel.Caption:='File';
+ Self.DirectoryField.EditLabel.Caption:='Directory';
+ Self.OpenButton.Caption:='Open';
+ Self.BrowseButton.Caption:='Browse';
+ Self.ExtractButton.Caption:='Extract';
+ Self.OpenDialog.Title:='Open the existing file';
+ Self.SelectDirectoryDialog.Title:='Select a directory';
+ Self.OperationStatus.SimpleText:='Ready to work';
+end;
+
+procedure TMainWindow.setup();
+begin
+ Self.window_setup();
+ Self.interface_setup();
+ Self.dialog_setup();
+ Self.language_setup();
+end;
 
 function convert_file_name(const source:string): string;
 var target:string;
@@ -86,95 +144,45 @@ begin
  decompile_grp:=message;
 end;
 
-procedure window_setup();
-begin
- Application.Title:='GRP DECOMPILER SHELL';
- MainWindow.Caption:='GRP DECOMPILER SHELL 1.2.2';
- MainWindow.BorderStyle:=bsDialog;
- MainWindow.Font.Name:=Screen.MenuFont.Name;
- MainWindow.Font.Size:=14;
-end;
-
-procedure dialog_setup();
-begin
- MainWindow.OpenDialog.FileName:='*.grp';
- MainWindow.OpenDialog.DefaultExt:='*.grp';
- MainWindow.OpenDialog.Filter:='GRP pseudo-archive|*.grp';
-end;
-
-procedure interface_setup();
-begin
- MainWindow.OpenButton.ShowHint:=False;
- MainWindow.BrowseButton.ShowHint:=MainWindow.OpenButton.ShowHint;
- MainWindow.ExtractButton.ShowHint:=MainWindow.OpenButton.ShowHint;
- MainWindow.ExtractButton.Enabled:=False;
- MainWindow.FileField.Text:='';
- MainWindow.DirectoryField.Text:=MainWindow.FileField.Text;
- MainWindow.FileField.LabelPosition:=lpLeft;
- MainWindow.DirectoryField.LabelPosition:=MainWindow.FileField.LabelPosition;
- MainWindow.FileField.Enabled:=False;
- MainWindow.DirectoryField.Enabled:=MainWindow.FileField.Enabled;
-end;
-
-procedure language_setup();
-begin
- MainWindow.FileField.EditLabel.Caption:='File';
- MainWindow.DirectoryField.EditLabel.Caption:='Directory';
- MainWindow.OpenButton.Caption:='Open';
- MainWindow.BrowseButton.Caption:='Browse';
- MainWindow.ExtractButton.Caption:='Extract';
- MainWindow.OpenDialog.Title:='Open the existing file';
- MainWindow.SelectDirectoryDialog.Title:='Select a directory';
- MainWindow.OperationStatus.SimpleText:='Ready to work';
-end;
-
-procedure setup();
-begin
- window_setup();
- interface_setup();
- dialog_setup();
- language_setup();
-end;
-
 { TMainWindow }
 
 procedure TMainWindow.FormCreate(Sender: TObject);
 begin
- setup();
+ Self.setup();
 end;
 
 procedure TMainWindow.FileFieldChange(Sender: TObject);
 begin
- MainWindow.ExtractButton.Enabled:=(MainWindow.FileField.Text<>'') and (MainWindow.DirectoryField.Text<>'');
+ Self.ExtractButton.Enabled:=(Self.FileField.Text<>'') and (Self.DirectoryField.Text<>'');
 end;
 
 procedure TMainWindow.DirectoryFieldChange(Sender: TObject);
 begin
- MainWindow.ExtractButton.Enabled:=(MainWindow.FileField.Text<>'') and (MainWindow.DirectoryField.Text<>'');
+ Self.ExtractButton.Enabled:=(Self.FileField.Text<>'') and (Self.DirectoryField.Text<>'');
 end;
 
 procedure TMainWindow.OpenButtonClick(Sender: TObject);
 begin
- if MainWindow.OpenDialog.Execute()=True then
+ if Self.OpenDialog.Execute()=True then
  begin
-  MainWindow.FileField.Text:=MainWindow.OpenDialog.FileName;
-  MainWindow.DirectoryField.Text:=ExtractFilePath(MainWindow.OpenDialog.FileName);
+  Self.FileField.Text:=Self.OpenDialog.FileName;
+  Self.DirectoryField.Text:=ExtractFilePath(Self.OpenDialog.FileName);
  end;
 
 end;
 
 procedure TMainWindow.BrowseButtonClick(Sender: TObject);
 begin
- if MainWindow.SelectDirectoryDialog.Execute()=True then
+ if Self.SelectDirectoryDialog.Execute()=True then
  begin
-  MainWindow.DirectoryField.Text:=correct_path(MainWindow.SelectDirectoryDialog.FileName);
+  Self.DirectoryField.Text:=correct_path(Self.SelectDirectoryDialog.FileName);
  end;
 
 end;
 
 procedure TMainWindow.ExtractButtonClick(Sender: TObject);
 begin
- MainWindow.OperationStatus.SimpleText:=decompile_grp(MainWindow.FileField.Text,MainWindow.DirectoryField.Text);
+ Self.OperationStatus.SimpleText:=decompile_grp(Self.FileField.Text,Self.DirectoryField.Text);
 end;
 
 {$R *.lfm}

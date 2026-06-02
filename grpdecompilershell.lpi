@@ -79,8 +79,8 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="83"/>
-        <CursorPos X="49" Y="92"/>
+        <TopLine Value="64"/>
+        <CursorPos X="23" Y="183"/>
         <UsageCount Value="22"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -93,7 +93,7 @@
         <UsageCount Value="10"/>
       </Unit2>
     </Units>
-    <JumpHistory Count="24" HistoryIndex="23">
+    <JumpHistory Count="25" HistoryIndex="24">
       <Position1>
         <Filename Value="grpdecompilershellcode.pas"/>
         <Caret Line="149" TopLine="149"/>
@@ -188,8 +188,12 @@
       </Position23>
       <Position24>
         <Filename Value="grpdecompilershellcode.pas"/>
-        <Caret Line="75" Column="166" TopLine="82"/>
+        <Caret Line="51" Column="2" TopLine="36"/>
       </Position24>
+      <Position25>
+        <Filename Value="grpdecompilershellcode.pas"/>
+        <Caret Line="57" Column="11" TopLine="48"/>
+      </Position25>
     </JumpHistory>
   </ProjectOptions>
   <CompilerOptions>
