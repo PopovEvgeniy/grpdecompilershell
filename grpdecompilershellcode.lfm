@@ -6,7 +6,7 @@ object MainWindow: TMainWindow
   Caption = 'GRP DECOMPILER SHELL'
   ClientHeight = 178
   ClientWidth = 331
-  LCLVersion = '4.6.0.0'
+  LCLVersion = '4.8.0.0'
   OnCreate = FormCreate
   object FileField: TLabeledEdit
     Left = 80
@@ -32,7 +32,6 @@ object MainWindow: TMainWindow
     EditLabel.ParentColor = False
     TabOrder = 1
     Text = 'DirectoryField'
-    OnChange = DirectoryFieldChange
   end
   object OpenButton: TButton
     Left = 232

@@ -30,7 +30,6 @@ type
     procedure ExtractButtonClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FileFieldChange(Sender: TObject);
-    procedure DirectoryFieldChange(Sender: TObject);
   private
     procedure window_setup();
     procedure dialog_setup();
@@ -48,7 +47,7 @@ implementation
 procedure TMainWindow.window_setup();
 begin
  Application.Title:='GRP DECOMPILER SHELL';
- Self.Caption:='GRP DECOMPILER SHELL 1.2.3';
+ Self.Caption:='GRP DECOMPILER SHELL 1.2.4';
  Self.BorderStyle:=bsDialog;
  Self.Font.Name:=Screen.MenuFont.Name;
  Self.Font.Size:=14;
@@ -67,6 +66,7 @@ begin
  Self.BrowseButton.ShowHint:=False;
  Self.ExtractButton.ShowHint:=False;
  Self.ExtractButton.Enabled:=False;
+ Self.BrowseButton.Enabled:=False;
  Self.FileField.Text:='';
  Self.DirectoryField.Text:='';
  Self.FileField.LabelPosition:=lpLeft;
@@ -130,10 +130,10 @@ end;
 
 function decompile_grp(const target:string;const directory:string):string;
 var host,argument,message:string;
-var messages:array[0..6] of string=('The operation was successfully completed','Can not open the input file','Can not create the output file','Can not read data!','Can not write data!','Can not allocate memory','The invalid format');
+var messages:array[0..6] of string=('The operation was successfully completed','Cannot open the input file','Cannot create the output file','Cannot read data!','Cannot write data!','Cannot allocate memory','The invalid format');
 var status:Integer;
 begin
- message:='Can not execute an external program';
+ message:='Cannot execute an external program';
  host:=ExtractFilePath(Application.ExeName)+'grpdecompiler.exe';
  argument:=convert_file_name(target)+' '+convert_file_name(directory);
  status:=execute_program(host,argument);
@@ -153,12 +153,8 @@ end;
 
 procedure TMainWindow.FileFieldChange(Sender: TObject);
 begin
- Self.ExtractButton.Enabled:=(Self.FileField.Text<>'') and (Self.DirectoryField.Text<>'');
-end;
-
-procedure TMainWindow.DirectoryFieldChange(Sender: TObject);
-begin
- Self.ExtractButton.Enabled:=(Self.FileField.Text<>'') and (Self.DirectoryField.Text<>'');
+ Self.ExtractButton.Enabled:=Self.FileField.Text<>'';
+ Self.BrowseButton.Enabled:=Self.ExtractButton.Enabled;
 end;
 
 procedure TMainWindow.OpenButtonClick(Sender: TObject);
