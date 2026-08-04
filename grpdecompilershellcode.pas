@@ -47,7 +47,7 @@ implementation
 procedure TMainWindow.window_setup();
 begin
  Application.Title:='GRP DECOMPILER SHELL';
- Self.Caption:='GRP DECOMPILER SHELL 1.2.4';
+ Self.Caption:='GRP DECOMPILER SHELL 1.2.5';
  Self.BorderStyle:=bsDialog;
  Self.Font.Name:=Screen.MenuFont.Name;
  Self.Font.Size:=14;
@@ -103,7 +103,7 @@ begin
  begin
   target:='"'+source+'"';
  end;
- convert_file_name:=target;
+ Result:=target;
 end;
 
 function correct_path(const source:string ): string;
@@ -114,7 +114,7 @@ begin
  begin
   target:=source+DirectorySeparator;
  end;
- correct_path:=target;
+ Result:=target;
 end;
 
 function execute_program(const executable:string;const argument:string):Integer;
@@ -125,7 +125,7 @@ begin
  except
   code:=-1;
  end;
- execute_program:=code;
+ Result:=code;
 end;
 
 function decompile_grp(const target:string;const directory:string):string;
