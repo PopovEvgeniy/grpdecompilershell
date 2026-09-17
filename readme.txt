@@ -1,6 +1,6 @@
                                 GRP DECOMPILER SHELL
 
-                                  Version 1.2.5
+                                  Version 1.2.6
 
                          This software was made by Popov Evgeniy Alekseyevich
 
@@ -57,3 +57,4 @@ Version history.
 1.2.3: The small changes.
 1.2.4: The user interface has improved.
 1.2.5: The small changes.
+1.2.6: The program has been adapted to the new version of GRP DECOMPILER.

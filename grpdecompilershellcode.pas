@@ -47,7 +47,7 @@ implementation
 procedure TMainWindow.window_setup();
 begin
  Application.Title:='GRP DECOMPILER SHELL';
- Self.Caption:='GRP DECOMPILER SHELL 1.2.5';
+ Self.Caption:='GRP DECOMPILER SHELL 1.2.6';
  Self.BorderStyle:=bsDialog;
  Self.Font.Name:=Screen.MenuFont.Name;
  Self.Font.Size:=14;
@@ -130,7 +130,7 @@ end;
 
 function decompile_grp(const target:string;const directory:string):string;
 var host,argument,message:string;
-var messages:array[0..6] of string=('The operation was successfully completed','Cannot open the input file','Cannot create the output file','Cannot read data!','Cannot write data!','Cannot allocate memory','The invalid format');
+var messages:array[0..7] of string=('The operation was successfully completed','The output path is empty','Cannot open the input file','Cannot create the output file','Cannot read data!','Cannot write data!','Cannot allocate memory','The invalid format');
 var status:Integer;
 begin
  message:='Cannot execute an external program';
@@ -141,7 +141,7 @@ begin
  begin
   message:=messages[status];
  end;
- decompile_grp:=message;
+ Result:=message;
 end;
 
 { TMainWindow }
